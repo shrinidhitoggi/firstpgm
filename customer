@@ -1,0 +1,111 @@
+
+public class Customer
+{
+public String Cusname;
+public int CusId;
+static int icount;
+public String getCusname() {
+	return Cusname;
+}
+public void setCusname(String cusname) {
+	Cusname = cusname;
+}
+public int getCusId() {
+	return CusId;
+}
+public void setCusId(int cusId) {
+	CusId = cusId;
+}
+public static int getIcount() {
+	return icount;
+}
+
+public static void setIcount(int icount) {
+	PrevCus.icount = icount;
+}
+
+public static void main(String args[])
+{
+	Customer c=new Customer();
+	String name;
+	int id;
+	c.setCusId(1001);
+	id=c.getCusId();
+	c.setCusname("java");
+	name=c.getCusname();
+	System.out.println(name);
+	System.out.println(id);
+}
+}
+
+public class PrevCus extends Customer 
+{
+public String memtyp;
+
+
+public String getMemtyp() {
+	return memtyp;
+}
+
+public void setMemtyp(String memtyp) {
+	this.memtyp = memtyp;
+}
+static
+{
+icount=3000;	
+
+}
+
+PrevCus()
+{
+	this.setCusId(++icount);
+}
+void Prevdisplay()
+{
+	System.out.println(CusId+"/t"+Cusname);
+	
+}
+
+}
+
+public class RegCus extends Customer
+{
+public float Dis;
+
+public float getDis() {
+	return Dis;
+}
+
+public void setDis(float dis) {
+	Dis = dis;
+}
+static
+{
+icount=5000;	
+
+}
+RegCus()
+{
+	this.setCusId(++icount);
+}
+void Regdisplay()
+{
+	System.out.println(CusId+"/t"+Cusname);
+	
+}
+}
+ 
+
+public class Display 
+{
+public static void main(String args[])
+{
+	PrevCus p=new PrevCus();
+	RegCus r=new RegCus();
+	p.Prevdisplay();
+	r.Regdisplay();
+	
+	
+}
+}
+
